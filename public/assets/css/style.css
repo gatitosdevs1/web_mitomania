@@ -4,18 +4,146 @@
 
 /* CSS ANAHENNA */
 
-
-
 /* CSS MARIA */
 
 /*  escribir codigo aqui  */
 
 /* CSS MARIA */
-
-
 
 /* CSS PAULO */
 
-/*  escribir codigo aqui  */
+/*  */
+/*  */
+/*  */
+
+/*  */
+/*  */
+/*  */
+body {
+  background: linear-gradient(to bottom, #1f1f1f, #343434);
+  color: #ffffff;
+}
+#sec-videos {
+  margin: 5rem 2rem;
+}
+#sec-videos h1 {
+  width: 100%;
+  /* white-space: nowrap; */
+  font-size: 9.4vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#contacto-rider {
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+}
+#contacto-rider h1 {
+  text-align: center;
+  width: 100%;
+  /* white-space: nowrap; */
+  font-size: 12vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+#contacto-rider .row {
+  margin: auto 0;
+}
+#card-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-form {
+  text-align: left;
+  /* background-color: #423d3a; */
+  background-size: cover;
+  color: #dcd8d6;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 35px 5px rgba(255, 77, 255, 0.5);
+  border: 2px solid #ff4dff;
+  max-width: 500px;
+  width: 100%;
+}
+.card-form h6 {
+  text-align: center;
+  font-size: 2rem;
+}
+.card-form label {
+  margin-left: 10px;
+  padding-top: 5%;
+  font-size: 1.2rem;
+}
+
+.card-form input {
+  height: 2.5rem;
+}
+textarea::placeholder,
+.card-form input::placeholder {
+  color: #aaa6a6;
+  font-size: 1.2rem;
+}
+.input-text,
+textarea {
+  color: #ffffff;
+  width: 100%;
+  outline: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  background-color: transparent;
+  border: 1px solid #dcd8d6;
+}
+textarea {
+  min-height: 9rem;
+  max-height: 9.8rem;
+}
+.input-text:focus,
+textarea:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+  /* backdrop-filter: blur(10px); */
+}
+
+.submit-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+#submit-btn,
+#form-response button {
+  background-color: transparent;
+  box-shadow: 0 0 10px 5px rgba(255, 77, 255, 0.5);
+  border: 2px solid #ff4dff;
+  color: #ff4dff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#submit-btn:hover,
+#form-response button:hover {
+  color: #ffffff;
+  background-color: #ff4dff;
+}
+#rider {
+  text-align: center;
+}
+#rider h5 {
+}
+/* #rider a {
+  vertical-align: middle;
+} */
+#rider-img {
+  margin-top: 1rem;
+  width: 60%;
+  height: auto;
+}
+@media (max-width: 992px) {
+  #rider {
+    margin-top: 3rem;
+  }
+}
 
 /* CSS PAULO */

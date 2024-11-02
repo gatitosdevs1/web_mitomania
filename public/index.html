@@ -19,10 +19,11 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- GoogleFonts poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -46,62 +47,175 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
+    <link rel="stylesheet" href="./assets/css/slider-styles.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
   <body>
+    <!-- NAVBAR -->
+
+    <!-- escribir codigo aqui -->
 
     <!-- NAVBAR -->
 
-      <!-- escribir codigo aqui -->
+    <!-- INICIO -->
 
-    <!-- NAVBAR -->
-
-
+    <!-- escribir codigo aqui -->
 
     <!-- INICIO -->
 
-      <!-- escribir codigo aqui -->
+    <!-- DISCOGRAFIA -->
 
-    <!-- INICIO -->
-
-
+    <!-- escribir codigo aqui -->
 
     <!-- DISCOGRAFIA -->
 
-      <!-- escribir codigo aqui -->
+    <!-- LETRAS MUSICA -->
 
-    <!-- DISCOGRAFIA -->
-
-
+    <!-- escribir codigo aqui -->
 
     <!-- LETRAS MUSICA -->
 
-      <!-- escribir codigo aqui -->
-
-    <!-- LETRAS MUSICA -->
-
-
-
     <!-- VIDEOS MUSICALES -->
+    <section id="sec-videos">
+      <h1>VIDEOS MUSICALES</h1>
+      <div class="gallery">
+        <div class="gallery-container">
+          <!-- <img
+                class="gallery-item gallery-item-1"
+          src="img/image2.png"
+          data-index="2"
+        /> -->
+          <iframe
+            data-item="1"
+            class="gallery-item gallery-item-1 ytvideo"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            data-item="2"
+            class="gallery-item gallery-item-2 ytvideo"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
 
-      <!-- escribir codigo aqui -->
+          <iframe
+            data-item="3"
+            class="gallery-item gallery-item-3 ytvideo"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
 
+          <!-- <img
+          class="gallery-item gallery-item-5"
+          src="img/image5.png"
+          data-index="5"
+          /> -->
+        </div>
+        <div class="gallery-controls">
+          <button class="gallery-controls-previous"></button>
+          <!-- <div class="dots"> -->
+          <span class="dot" data-item="1"></span>
+          <span class="dot active" data-item="2"></span>
+          <span class="dot" data-item="3"></span>
+          <!-- </div> -->
+          <button class="gallery-controls-next"></button>
+        </div>
+      </div>
+    </section>
+    <section id="contacto-rider" class="">
+      <h1>CONTÁCTANOS</h1>
+      <div class="row">
+        <article class="col-lg-6">
+          <div id="card-form-container">
+            <div class="card-form">
+              <h6>¡Envíanos un mensaje!</h6>
+              <form id="contact-form">
+                <label for="name">Nombre</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  title="Ingresa tu nombre"
+                  placeholder="Nombre"
+                  required
+                  class="input-text"
+                />
+
+                <label for="email">Email</label>
+                <p id="email-error" class="pt-1 d-none">
+                  ¡Ingrese un email válido!
+                </p>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  title="Ingresa tu email"
+                  placeholder="Email"
+                  required
+                  class="input-text"
+                />
+
+                <label for="message">Mensaje</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  title="Escribe tu mensaje"
+                  placeholder="Mensaje"
+                  required
+                  aria-checked="true"
+                  rows="5"
+                ></textarea>
+                <div class="submit-container">
+                  <input
+                    type="submit"
+                    value="Enviar"
+                    class="btn"
+                    id="submit-btn"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </article>
+        <article id="rider" class="col-lg-6">
+          <h2 class="titulo">RIDER TÉCNICO</h2>
+          <a
+            href="https://www.google.cl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img
+              id="rider-img"
+              src="assets/img/escenario.png"
+              alt="Llave de sol"
+          /></a>
+        </article>
+      </div>
+    </section>
     <!-- VIDEOS MUSICALES -->
-
-
 
     <!-- CONTACTANOS RIDER -->
 
-      <!-- escribir codigo aqui -->
+    <!-- escribir codigo aqui -->
 
     <!-- CONTACTANOS RIDER -->
-
-
 
     <!-- FOOTER -->
 
-      <!-- escribir codigo aqui -->
+    <!-- escribir codigo aqui -->
 
     <!-- FOOTER -->
 
@@ -110,6 +224,7 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="assets/js/slider-script.js"></script>
     <script src="assets/js/index.js"></script>
   </body>
 </html>
