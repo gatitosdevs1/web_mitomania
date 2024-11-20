@@ -44,167 +44,183 @@
       referrerpolicy="no-referrer"
     ></script>
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./assets/css/slider-styles.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/style.css"> 
+    <link rel="stylesheet" href="./assets/css/navbar.css"> 
+    <link rel="stylesheet" href="./assets/css/titulos.css"> 
+    <link rel="stylesheet" href="./assets/css/inicio.css"> 
+    <link rel="stylesheet" href="./assets/css/discografia.css">
+    <link rel="stylesheet" href="./assets/css/disco01.css">
   </head>
 
   <body>
     <!-- NAVBAR -->
+    <div id="navbar">
+      <div id="menu-icon">
+        <!-- Las tres líneas del menú -->
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+      </div>
+    </div>
 
-    <!-- escribir codigo aqui -->
+    <!-- MODAL -->
+    <div id="menu-modal">
+      <div id="modal-content">
+        <ul>
+          <li><a href="#seccion1">INICIO</a></li>
+          <li><a href="#seccion2">DISCOGRAFÍA</a></li>
+          <li><a href="#seccion3">LETRAS </a></li>
+          <li><a href="#seccion4">VIDEOS </a></li>
+          <li><a href="#seccion5">CONTACTANOS </a></li>
+          <li><a href="#seccion5">REDES SOCIALES</a></li>
+        </ul>
+      </div>
+    </div>
+    </body>
+
+
 
     <!-- NAVBAR -->
 
     <!-- INICIO -->
 
-    <!-- escribir codigo aqui -->
+    <section id="inicio">
+      <!-- Canvas para las ondas animadas -->
+      <canvas id="backgroundCanvas"></canvas>
+      <div class="content">
+        <img src="./assets/img/inicio.png" alt="" id="imagen-inicio">
+      </div>
+    </section>
+
+    <canvas id="lineAnimationCanvas"></canvas>
 
     <!-- INICIO -->
 
-    <!-- DISCOGRAFIA -->
+    <!-- DISCOGRAFÍA -->
+    <div class="section-title-container">
+      <h2 class="section-title">DISCOGRAFÍA</h2>
+    </div>
 
-    <!-- escribir codigo aqui -->
+    <div class="album">
+      <div class="album-container">
+        <!-- Carátula del álbum -->
+        <div class="album-front">
+          <img src="https://via.placeholder.com/700x700" alt="Carátula del álbum">
+        </div>
+        <!-- Lista de canciones -->
+        <div class="album-back">
+          <ul>
+            <li>Canción 1</li>
+            <li>Canción 2</li>
+            <li>Canción 3</li>
+            <li>Canción 4</li>
+            <li>Canción 5</li>
+            <li>Canción 6</li>
+            <li>Canción 7</li>
+            <li>Canción 8</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- DISCOGRAFÍA -->
 
-    <!-- DISCOGRAFIA -->
+
 
     <!-- LETRAS MUSICA -->
+    <div class="section-title-container">
+      <h2 class="section-title">LETRAS MÚSICA</h2>
+    </div>
 
-    <!-- escribir codigo aqui -->
+    <div class="music-lyrics-container">
+      <!-- Cuadro de la imagen -->
+      <div class="music-lyrics-box">
+        <img src="./assets/img/default_musica.png" alt="Imagen por defecto" class="music-lyrics-image">
+      </div>
+
+      <!-- Barras del reproductor -->
+      <div class="music-player-bars">
+        <!-- Reproductor 1 -->
+        <div class="player-bar">
+          <button class="play-pause-button">
+            <i class="fas fa-play"></i>
+          </button>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <a href="https://spotify.com" target="_blank" class="spotify-icon">
+            <i class="fab fa-spotify"></i>
+          </a>
+          <a href="#" target="_blank" class="lyrics-icon">
+            <i class="fas fa-file-alt"></i>
+          </a>
+        </div>
+
+        <!-- Reproductor 2 -->
+        <div class="player-bar">
+          <button class="play-pause-button">
+            <i class="fas fa-play"></i>
+          </button>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <a href="https://spotify.com" target="_blank" class="spotify-icon">
+            <i class="fab fa-spotify"></i>
+          </a>
+          <a href="#" target="_blank" class="lyrics-icon">
+            <i class="fas fa-file-alt"></i>
+          </a>
+        </div>
+
+        <!-- Reproductor 3 -->
+        <div class="player-bar">
+          <button class="play-pause-button">
+            <i class="fas fa-play"></i>
+          </button>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <a href="https://spotify.com" target="_blank" class="spotify-icon">
+            <i class="fab fa-spotify"></i>
+          </a>
+          <a href="#" target="_blank" class="lyrics-icon">
+            <i class="fas fa-file-alt"></i>
+          </a>
+        </div>
+
+        <!-- Reproductor 4 -->
+        <div class="player-bar">
+          <button class="play-pause-button">
+            <i class="fas fa-play"></i>
+          </button>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <a href="https://spotify.com" target="_blank" class="spotify-icon">
+            <i class="fab fa-spotify"></i>
+          </a>
+          <a href="#" target="_blank" class="lyrics-icon">
+            <i class="fas fa-file-alt"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
 
     <!-- LETRAS MUSICA -->
 
     <!-- VIDEOS MUSICALES -->
-    <section id="sec-videos">
-      <h1>VIDEOS MUSICALES</h1>
-      <div class="gallery">
-        <div class="gallery-container">
-          <!-- <img
-                class="gallery-item gallery-item-1"
-          src="img/image2.png"
-          data-index="2"
-        /> -->
-          <iframe
-            data-item="1"
-            class="gallery-item gallery-item-1 ytvideo"
-            src=""
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-          <iframe
-            data-item="2"
-            class="gallery-item gallery-item-2 ytvideo"
-            src=""
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            data-item="3"
-            class="gallery-item gallery-item-3 ytvideo"
-            src=""
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
-
-          <!-- <img
-          class="gallery-item gallery-item-5"
-          src="img/image5.png"
-          data-index="5"
-          /> -->
-        </div>
-        <div class="gallery-controls">
-          <button class="gallery-controls-previous"></button>
-          <!-- <div class="dots"> -->
-          <span class="dot" data-item="1"></span>
-          <span class="dot active" data-item="2"></span>
-          <span class="dot" data-item="3"></span>
-          <!-- </div> -->
-          <button class="gallery-controls-next"></button>
-        </div>
-      </div>
-    </section>
-    <section id="contacto-rider" class="">
-      <h1>CONTÁCTANOS</h1>
-      <div class="row">
-        <article class="col-lg-6">
-          <div id="card-form-container">
-            <div class="card-form">
-              <h6>¡Envíanos un mensaje!</h6>
-              <form id="contact-form">
-                <label for="name">Nombre</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  title="Ingresa tu nombre"
-                  placeholder="Nombre"
-                  required
-                  class="input-text"
-                />
-
-                <label for="email">Email</label>
-                <p id="email-error" class="pt-1 d-none">
-                  ¡Ingrese un email válido!
-                </p>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  title="Ingresa tu email"
-                  placeholder="Email"
-                  required
-                  class="input-text"
-                />
-
-                <label for="message">Mensaje</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  title="Escribe tu mensaje"
-                  placeholder="Mensaje"
-                  required
-                  aria-checked="true"
-                  rows="5"
-                ></textarea>
-                <div class="submit-container">
-                  <input
-                    type="submit"
-                    value="Enviar"
-                    class="btn"
-                    id="submit-btn"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-        </article>
-        <article id="rider" class="col-lg-6">
-          <h2 class="titulo">RIDER TÉCNICO</h2>
-          <a
-            href="https://www.google.cl/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><img
-              id="rider-img"
-              src="assets/img/escenario.png"
-              alt="Llave de sol"
-          /></a>
-        </article>
-      </div>
-    </section>
+    
     <!-- VIDEOS MUSICALES -->
 
     <!-- CONTACTANOS RIDER -->
@@ -224,7 +240,11 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="assets/js/slider-script.js"></script>
+
+    <script src="assets/js/inicio.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/discografia.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/disco01.js"></script>
   </body>
 </html>

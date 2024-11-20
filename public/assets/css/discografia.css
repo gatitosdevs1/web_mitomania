@@ -1,0 +1,69 @@
+/* General: Aplicar la fuente Inter */
+body, .album-back ul li {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Contenedor principal del álbum */
+  .album {
+    perspective: 1000px; /* Permite la animación en 3D */
+    width: 600px;
+    height: 600px;
+    margin: 20px auto 100px; /* Agrega margen inferior adicional */
+  }
+  
+  .album-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out; /* Suaviza la animación */
+  }
+  
+  .album:hover .album-container {
+    transform: rotateY(180deg); /* Giro al hacer hover */
+  }
+  
+  /* Lado frontal y trasero del álbum */
+  .album-front, .album-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta el lado inverso */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid white; /* Borde blanco */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 0 20px #FF4DFF, 0 0 40px #FF4DFF; /* Efecto de luz neón */
+  }
+  
+  /* Estilo de la carátula frontal */
+  .album-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene proporciones de la imagen */
+    border-radius: 15px;
+  }
+  
+  /* Lado trasero con la lista de canciones */
+  .album-back {
+    background: #b3b3b3; /* Fondo gris (no tan claro) */
+    color: black; /* Texto negro */
+    transform: rotateY(180deg); /* Posición inicial invertida */
+    padding: 30px; /* Márgenes internos para separar del borde */
+    box-sizing: border-box; /* Asegura que el padding no desborde */
+  }
+  
+  .album-back ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold; /* Texto en negrita */
+  }
+  
+  .album-back ul li {
+    margin: 15px 0; /* Espaciado entre las canciones */
+  }
+  
