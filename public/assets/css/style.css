@@ -5,14 +5,14 @@ body {
 }
 
 @font-face {
-  font-family: 'Eras Bold ITC';
-  src: url('./public/assets/fonts/eras-itc-bold.ttf') format('truetype'); /* Ruta relativa */
+  font-family: "Eras Bold ITC";
+  src: url("./public/assets/fonts/eras-itc-bold.ttf") format("truetype"); /* Ruta relativa */
   font-weight: normal;
   font-style: normal;
 }
 
 /* CSS ANAHENNA */
-  
+
 /*  escribir codigo aqui  */
 
 /* CSS ANAHENNA */
@@ -25,13 +25,326 @@ body {
 
 /* CSS PAULO */
 
-/*  */
-/*  */
-/*  */
+body {
+  background: linear-gradient(to bottom, #1f1f1f, #343434);
+  color: #ffffff;
+}
+#sec-videos {
+  margin: 5rem 2rem;
+}
+#sec-videos h1 {
+  width: 100%;
+  /* white-space: nowrap; */
+  font-size: 9.4vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#contacto-rider {
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+}
+#contacto-rider h1 {
+  text-align: center;
+  width: 100%;
+  /* white-space: nowrap; */
+  font-size: 12vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 3rem;
+}
+#contacto-rider .row {
+  margin: auto 0;
+}
+#card-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-form {
+  text-align: left;
+  /* background-color: #423d3a; */
+  background-size: cover;
+  color: #dcd8d6;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 35px 5px rgba(255, 77, 255, 0.5);
+  border: 2px solid #ff4dff;
+  max-width: 500px;
+  width: 100%;
+}
+.card-form h6 {
+  text-align: center;
+  font-size: 2rem;
+}
+.card-form label {
+  margin-left: 10px;
+  padding-top: 5%;
+  font-size: 1.2rem;
+}
 
-/*  */
-/*  */
-/*  */
+.card-form input {
+  height: 2.5rem;
+}
+textarea::placeholder,
+.card-form input::placeholder {
+  color: #aaa6a6;
+  font-size: 1.2rem;
+}
+.input-text,
+textarea {
+  color: #ffffff;
+  width: 100%;
+  outline: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  background-color: transparent;
+  border: 1px solid #dcd8d6;
+}
+textarea {
+  min-height: 9rem;
+  max-height: 9.8rem;
+}
+.input-text:focus,
+textarea:focus {
+  background-color: #1f1f1f;
+  /* backdrop-filter: blur(10px); */
+}
 
+.submit-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+#submit-btn,
+#form-response button {
+  background-color: transparent;
+  box-shadow: 0 0 10px 5px rgba(255, 77, 255, 0.5);
+  border: 2px solid #ff4dff;
+  color: #ff4dff;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+#submit-btn:hover,
+#form-response button:hover {
+  color: #ffffff;
+  background-color: #ff4dff;
+}
+#rider {
+  text-align: center;
+}
+
+/* #rider a {
+  vertical-align: middle;
+} */
+#rider-img {
+  margin-top: 1rem;
+  width: 60%;
+  height: auto;
+  max-height: 100%;
+}
+@media (max-width: 992px) {
+  #rider {
+    margin-top: 3rem;
+  }
+}
+#form-loader {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+#img-form-loader {
+  margin: auto;
+  width: 20%;
+  height: auto;
+  animation: throb 1.5s linear infinite;
+}
+#form-response {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  width: 33%;
+  height: auto;
+  color: #ffffff;
+  margin: auto;
+  padding: 1rem;
+}
+@media (max-width: 991px) {
+  #form-response {
+    width: 50%;
+  }
+}
+@media (max-width: 500px) {
+  #form-response {
+    width: 70%;
+  }
+}
+#form-response h6 {
+  font-size: 1.7rem;
+}
+#form-response hr {
+  color: #dcd8d6;
+}
+#form-response p {
+  font-size: 1.2rem;
+}
+#form-response button {
+  font-size: 1.1rem;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+@keyframes throb {
+  0% {
+    transform: scale(1);
+  }
+  33% {
+    transform: scale(0.9);
+  }
+  66% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* REDES SOCIALES */
+
+/* Redes Sociales - Social Media Icons */
+#rrss-icon-container {
+  padding: 10.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#rrss-icon-container a {
+  width: 5rem;
+}
+
+@media (max-width: 770px) {
+  #rrss-icon-container a {
+    flex: 1 1 20%;
+    margin-top: 4rem;
+  }
+}
+
+.rrss-icon {
+  font-size: 5rem;
+  color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #000000;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .rrss-icon:hover {
+    transform: scale(1.2);
+    color: transparent;
+    -webkit-text-stroke-color: #000000;
+  }
+}
+
+/* REDES SOCIALES */
+
+.card {
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.redes .text-center a {
+  margin: 0 15px;
+}
+
+/* FOOTER */
+footer {
+  font-family: "Arial", sans-serif;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem 0;
+}
+#footer-line {
+  margin: 1rem 25%;
+}
+
+/* Botón inicio */
+
+/* modal devs */
+#modal-gatitos {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#dev-card {
+  position: relative;
+  text-align: center;
+  color: #dcd8d6;
+  background-color: rgba(0, 0, 0, 0.96);
+  border-radius: 15px;
+  margin: 0 7rem;
+  padding: 1rem 0;
+}
+#closeM {
+  font-size: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 1rem;
+}
+#closeM:hover,
+#btn-dev:hover {
+  cursor: pointer;
+}
+
+#dev-card h6 {
+  font-size: 3rem;
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 420px) {
+  #dev-card h6 {
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 560px) {
+  #dev-card {
+    margin: 0 3rem;
+  }
+}
+.dev {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.dev p {
+  padding-right: 1rem;
+}
+.dev a {
+  padding-left: 0.2rem;
+  color: #dcd8d6;
+}
+
+/* CSS PAULO */
 
 /* CSS PAULO */
