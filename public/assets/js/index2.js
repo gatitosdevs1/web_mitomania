@@ -106,5 +106,24 @@ contactForm.addEventListener("submit", function (e) {
     });
 });
 // Contact-form end
+// Back top
+const biography = document.getElementById("discografia");
+const arrow = document.getElementById("back-top");
+window.addEventListener("scroll", function () {
+  if (biography.offsetTop - 100 <= this.scrollY) {
+    arrow.classList.remove("fade");
+    arrow.classList.add("show");
+  } else {
+    arrow.classList.remove("show");
+    arrow.classList.add("fade");
+  }
+});
+
+arrow.addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
 // /Paulo
