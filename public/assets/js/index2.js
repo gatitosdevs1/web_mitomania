@@ -2,36 +2,21 @@
 
 function getVideos() {
   const myvideos = document.querySelectorAll(".ytvideo");
-  fetch(
-    "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBX-n32HsLTgJtglqHI7_6Qs2btTJhz0dY&channelId=UCY_aA4xy4BG7rJm1goIFqpA&part=snippet&order=viewCount&type=video&maxResults=3",
-    {
-      method: "GET",
-    }
-  )
+  fetch("http://localhost/PruebaPHPmailer/api.php", {
+    method: "GET",
+  })
     .then((response) => {
       if (!response.ok) {
-        console.log("error");
+        console.log("error aquí");
       }
       return response.json();
     })
     .then((data) => {
-      // console.log(data);
-      if (typeof data.error?.code !== "undefined") {
-        const videos = [
-          "https://www.youtube.com/embed/CshA5cGpiN0?si=W3cYWhsh-JraXthf",
-          "https://www.youtube.com/embed/xSFLuS3AKdY?si=7czJSEZxyMIhh4qZ",
-          "https://www.youtube.com/embed/qLZieDp0hI0?si=VYc2iACMWqVN_WnK",
-        ];
-        for (let i = 0; i < myvideos.length; i++) {
-          myvideos[i].src = videos[i];
-        }
-      } else {
-        const sort = [2, 0, 1];
-        for (let i = 0; i < myvideos.length; i++) {
-          myvideos[i].src = `https://www.youtube.com/embed/${
-            data.items[sort[i]].id.videoId
-          }`;
-        }
+      console.log(data);
+
+      const sort = [2, 0, 1];
+      for (let i = 0; i < myvideos.length; i++) {
+        myvideos[i].src = `https://www.youtube.com/embed/${data.data[sort[i]]}`;
       }
     })
     .catch((error) => {

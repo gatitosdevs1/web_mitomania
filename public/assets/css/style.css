@@ -148,7 +148,7 @@ textarea:focus {
 }
 @media (max-width: 992px) {
   #rider {
-    margin-top: 3rem;
+    margin-top: 6rem;
   }
 }
 #form-loader {
@@ -241,19 +241,66 @@ textarea:focus {
   }
 }
 
-.rrss-icon {
+/* 
+FF4DFF
+FFA221
+F8FF21
+006FFF
+*/
+.my-icons {
+  width: 80px; /* Tamaño del ícono */
+  height: 80px;
+  fill: none; /* Sin relleno */
+  stroke-width: 15; /* Grosor del contorno */
+  transition: transform 0.3s, filter 0.3s; /* Suaviza las animaciones */
+}
+
+/* stroke: #ff00ff; /* Color principal del contorno 
+filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 15px #ff00ff); Efecto de brillo */
+
+#youtube-icon {
+  /* stroke: #ffa221;
+  filter: drop-shadow(0 0 5px #ffa221) drop-shadow(0 0 15px #ffa221); */
+
+  stroke: #ff0000;
+  filter: drop-shadow(0 0 5px #ff0000) drop-shadow(0 0 15px #ff0000);
+}
+#spotify-icon {
+  /* stroke: #f8ff21;
+  filter: drop-shadow(0 0 5px #f8ff21) drop-shadow(0 0 15px #f8ff21); */
+
+  stroke: #1db954;
+  filter: drop-shadow(0 0 5px #1db954) drop-shadow(0 0 15px #1db954);
+}
+#instagram-icon {
+  /* stroke: #ff00ff;
+  filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 15px #ff00ff); */
+
+  stroke: #dd2a7b;
+  filter: drop-shadow(0 0 5px #dd2a7b) drop-shadow(0 0 15px #dd2a7b);
+}
+#tiktok-icon {
+  /* stroke: #006fff;
+  filter: drop-shadow(0 0 5px #006fff) drop-shadow(0 0 15px #006fff); */
+
+  stroke: #25f4ee;
+  filter: drop-shadow(0 0 5px #25f4ee) drop-shadow(0 0 15px #25f4ee);
+}
+
+/* .rrss-icon {
   font-size: 5rem;
   color: transparent;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: #000000;
   transition: transform 0.3s ease;
-}
+} */
 
 @media (min-width: 768px) {
-  .rrss-icon:hover {
+  .rrss-icon:hover,
+  .my-icons:hover {
     transform: scale(1.2);
     color: transparent;
-    -webkit-text-stroke-color: #000000;
+    /* -webkit-text-stroke-color: #000000; */
   }
 }
 
