@@ -57,7 +57,42 @@ $_SESSION['last_activity'] = time();
     <span class="close">&times;</span>
     <p id="modalMessage"></p>
   </div>
-  </div>
+</div>
+
+
+  </main>
+
+<!-- Script para el Modal -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('successModal');
+    const modalMessage = document.getElementById('modalMessage');
+    const closeModal = document.querySelector('.modal-content .close');
+    const form = document.querySelector('form');
+
+    <?php if (!empty($_SESSION['upload_message'])): ?>
+        modalMessage.textContent = "<?= htmlspecialchars($_SESSION['upload_message']); ?>";
+        modal.style.display = 'block';
+        <?php unset($_SESSION['upload_message']); // Limpiar mensaje ?>
+    <?php endif; ?>
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        form.reset(); // Limpiar el formulario
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            form.reset(); // Limpiar el formulario
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+
 
 
 </body>

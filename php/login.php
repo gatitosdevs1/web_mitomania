@@ -57,6 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" name="password" placeholder="Contraseña" required>
             <button type="submit">Ingresar</button>
         </form>
+    <div class="back-to-home">
+        <a href="/" class="home-link">Volver al inicio</a>
     </div>
+
 </body>
 </html>
