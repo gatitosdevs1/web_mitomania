@@ -4,18 +4,21 @@ require_once __DIR__ . '/config.php';
 
 define('SESSION_TIMEOUT', 1800);
 
+// Verificar si el usuario está autenticado
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
-    header('Location: login.php');
+    header('Location: /php/login.php');
     exit;
 }
 
+// Verificar si la sesión ha expirado
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > SESSION_TIMEOUT) {
     session_unset();
     session_destroy();
-    header('Location: login.php?message=session_expired');
+    header('Location: /php/login.php?message=session_expired');
     exit;
 }
 
+// Actualizar actividad de la sesión
 $_SESSION['last_activity'] = time();
 ?>
 <!DOCTYPE html>
@@ -24,12 +27,12 @@ $_SESSION['last_activity'] = time();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Administrador</title>
-  <link rel="stylesheet" href="../public/assets/css/admin.css"> <!-- Ruta relativa al CSS -->
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
   <header>
     <h1>Panel de Administración</h1>
-    <a href="logout.php" style="position: absolute; top: 10px; right: 20px; color: #ff4dff; text-decoration: none;">Cerrar sesión</a>
+    <a href="/php/logout.php" style="position: absolute; top: 10px; right: 20px; color: #ff4dff; text-decoration: none;">Cerrar sesión</a>
   </header>
   <main>
     <div class="form-container">

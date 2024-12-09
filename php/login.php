@@ -1,22 +1,35 @@
-<?php
+<?php 
 session_start();
-require_once __DIR__ . '/config.php'; // Configuración en la misma carpeta
+require_once __DIR__ . '/config.php';
 
+// Activar reporte de errores
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Si ya está autenticado, redirigir al panel
+if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true) {
+    header('Location: /php/admin.php');
+    exit;
+}
+
+// Validar login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Consultar la base de datos
     $stmt = $mysqli->prepare("SELECT password_hash FROM admin_users WHERE username = ?");
     $stmt->bind_param('s', $username);
     $stmt->execute();
     $stmt->bind_result($password_hash);
     $stmt->fetch();
 
+    // Verificar contraseña
     if ($password_hash && password_verify($password, $password_hash)) {
         $_SESSION['authenticated'] = true;
         $_SESSION['username'] = $username;
         $_SESSION['last_activity'] = time();
-        header('Location: admin.php');
+        header('Location: /php/admin.php'); // Redirigir al área de administración
         exit;
     } else {
         $error = 'Usuario o contraseña incorrectos.';
@@ -31,8 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Administración</title>
-    <link rel="stylesheet" href="../public/assets/css/login.css">
-
+    <link rel="stylesheet" href="/assets/css/login.css">
 </head>
 <body>
     <div class="login-container">
