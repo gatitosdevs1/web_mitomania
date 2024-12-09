@@ -2,7 +2,7 @@
 
 function getVideos() {
   const myvideos = document.querySelectorAll(".ytvideo");
-  fetch("php/get_videos.php", {
+  fetch("../../php/get_videos.php", {
     method: "GET",
   })
     .then((response) => {
@@ -77,7 +77,7 @@ contactForm.addEventListener("submit", function (e) {
 
   const formData = new FormData(contactForm);
   //cambiar ruta para deploy
-  fetch("php/send_mail.php", {
+  fetch("../../php/send_mail.php", {
     method: "POST",
     body: formData,
   })
