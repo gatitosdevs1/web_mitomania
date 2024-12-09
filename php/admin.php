@@ -51,5 +51,14 @@ $_SESSION['last_activity'] = time();
   <footer>
     &copy; 2024 Mitomanía. Todos los derechos reservados.
   </footer>
+
+  <div id="successModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMessage"></p>
+  </div>
+  </div>
+
+
 </body>
 </html>
