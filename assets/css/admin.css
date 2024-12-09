@@ -177,3 +177,39 @@ input[type="file"] {
     text-decoration: underline;
   }
   
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-content {
+    background-color: #1f1f1f;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ff4dff;
+    border-radius: 10px;
+    width: 40%;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .modal-content .close {
+    color: #ff4dff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .modal-content .close:hover,
+  .modal-content .close:focus {
+    color: #fff;
+  }
+  
