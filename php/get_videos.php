@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable('C:/proyectos_personal/web_mitomania');
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 $api_key = $_ENV['API_KEY'];
