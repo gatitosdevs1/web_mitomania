@@ -1,160 +1,137 @@
-let currentAudio = null,
-  progressInterval = null,
-  isPlaying = false,
-  currentTrackIndex = null,
-  tracksData = []; // Variable global para almacenar las canciones
+let tracksData = []; // Variable global para almacenar las canciones
 
-// Fetch and display top tracks on page load
+// Petición AJAX para obtener los datos
 $.ajax({
-  url: "../php/get_tracks.php",
-  method: "GET",
-  dataType: "json",
-  success: (response) => {
-    console.log("AJAX Success Response:", response);
-    if (response.tracks) {
-      tracksData = response.tracks; // Guardar las canciones en la variable global
-      populateMusicBars(response.tracks);
-    } else {
-      console.error("No tracks found in the response");
-    }
-  },
-  error: (err) => {
-    console.error("AJAX request failed:", err);
-  },
+    url: "/php/get_tracks.php", // Ruta al archivo PHP
+    method: "GET",
+    dataType: "json",
+    success: (response) => {
+        console.log("Respuesta AJAX recibida:", response); // Debug
+        if (response.tracks && response.tracks.length > 0) {
+            tracksData = response.tracks; // Guardar los datos en la variable global
+            populateMusicBars(tracksData); // Generar los reproductores
+        } else {
+            console.error("No se encontraron canciones en la respuesta.");
+        }
+    },
+    error: (xhr, status, error) => {
+        console.error("Error en la petición AJAX:", status, error);
+        console.error("Detalles del error:", xhr.responseText);
+    },
 });
 
+// Función para llenar las barras de música
 function populateMusicBars(tracks) {
-  const bars = document.querySelectorAll(".player-bar");
+    const bars = document.querySelectorAll(".player-bar"); // Contenedores de los reproductores
 
-  tracks.slice(0, bars.length).forEach((track, index) => {
-    const { name, preview_url, spotify_url } = track;
+    // Procesar cada canción para llenar las barras
+    tracks.slice(0, bars.length).forEach((track, index) => {
+        const { name, file_path } = track; // Extraer nombre y ruta
+        const audioPath = `/uploads/${file_path}`; // Ruta completa del archivo MP3 en el servidor
 
-    const bar = bars[index];
+        const bar = bars[index];
+        while (bar.firstChild) {
+            bar.removeChild(bar.firstChild); // Limpiar contenido previo
+        }
 
-    // Limpia completamente la barra antigua (remueve todo su contenido)
-    while (bar.firstChild) {
-      bar.removeChild(bar.firstChild);
-    }
+        // Botón de reproducción
+        const playButton = document.createElement("button");
+        playButton.classList.add("play-pause-button");
+        playButton.setAttribute("onclick", `playPreview('${audioPath}', ${index})`);
+        playButton.innerHTML = '<i class="fas fa-play"></i>';
+        bar.appendChild(playButton);
 
-    // Botón de reproducción
-    const playButton = document.createElement("button");
-    playButton.classList.add("play-pause-button");
-    if (preview_url) {
-      playButton.setAttribute("onclick", `playPreview('${preview_url}', ${index})`);
-      playButton.innerHTML = '<i class="fas fa-play"></i>';
-    } else {
-      playButton.disabled = true;
-      playButton.innerHTML = '<i class="fas fa-ban"></i>';
-    }
-    bar.appendChild(playButton);
+        // Nombre de la canción
+        const trackName = document.createElement("span");
+        trackName.textContent = name;
+        trackName.classList.add("track-name");
+        bar.appendChild(trackName);
 
-    // Ícono de Spotify
-    const spotifyIcon = document.createElement("a");
-    spotifyIcon.classList.add("spotify-icon");
-    spotifyIcon.href = spotify_url;
-    spotifyIcon.target = "_blank"; // Abre en nueva pestaña
-    spotifyIcon.innerHTML = '<i class="fab fa-spotify"></i>';
-    bar.appendChild(spotifyIcon);
+        // Barra de progreso
+        const progressBar = document.createElement("div");
+        progressBar.classList.add("progress-bar");
+        progressBar.id = `progress-bar-${index}`;
 
-    // Nombre de la canción
-    const trackName = document.createElement("span");
-    trackName.textContent = name;
-    trackName.classList.add("track-name");
-    bar.appendChild(trackName);
+        const progressFill = document.createElement("div");
+        progressFill.classList.add("progress-fill");
+        progressBar.appendChild(progressFill);
 
-    // Barra de progreso funcional
-    const progressBar = document.createElement("div");
-    progressBar.classList.add("progress-bar");
-    progressBar.id = `progress-bar-${index}`;
-
-    const progressFill = document.createElement("div");
-    progressFill.classList.add("progress-fill");
-    progressBar.appendChild(progressFill);
-
-    bar.appendChild(progressBar);
-  });
-}
-
-function playPreview(previewUrl, index) {
-  const playButton = $(`.play-pause-button`).eq(index);
-  const progressBar = $(`#progress-bar-${index} .progress-fill`);
-  const albumImage = tracksData[index].album_image;
-
-  if (currentTrackIndex === index && currentAudio) {
-    isPlaying ? pauseAudio(playButton) : resumeAudio(playButton, progressBar);
-  } else {
-    if (currentAudio) resetPreviousAudio();
-    startNewAudio(previewUrl, index, playButton, progressBar, albumImage);
-  }
-}
-
-function startNewAudio(previewUrl, index, playButton, progressBar, albumImage) {
-  currentAudio = new Audio(previewUrl);
-
-  // Actualiza la carátula de la canción
-  updateAlbumImage(albumImage);
-
-  currentAudio.addEventListener("loadedmetadata", () => {
-    currentAudio.play();
-    isPlaying = true;
-    currentTrackIndex = index;
-    playButton.html('<i class="fas fa-pause"></i>');
-    startProgressBar(progressBar, currentAudio.duration);
-
-    currentAudio.addEventListener("ended", () => {
-      resetTrack();
+        bar.appendChild(progressBar);
     });
-  });
+}
+
+// Control de reproducción de pistas
+let currentAudio = null,
+    progressInterval = null,
+    isPlaying = false,
+    currentTrackIndex = null;
+
+// Función para reproducir o pausar
+function playPreview(audioPath, index) {
+    const playButton = $(`.play-pause-button`).eq(index);
+    const progressBar = $(`#progress-bar-${index} .progress-fill`);
+
+    if (currentTrackIndex === index && currentAudio) {
+        isPlaying ? pauseAudio(playButton) : resumeAudio(playButton, progressBar);
+    } else {
+        if (currentAudio) resetPreviousAudio();
+        startNewAudio(audioPath, index, playButton, progressBar);
+    }
+}
+
+function startNewAudio(audioPath, index, playButton, progressBar) {
+    currentAudio = new Audio(audioPath);
+
+    currentAudio.addEventListener("loadedmetadata", () => {
+        currentAudio.play();
+        isPlaying = true;
+        currentTrackIndex = index;
+        playButton.html('<i class="fas fa-pause"></i>');
+        startProgressBar(progressBar, currentAudio.duration);
+
+        currentAudio.addEventListener("ended", () => {
+            resetTrack();
+        });
+    });
 }
 
 function pauseAudio(playButton) {
-  currentAudio.pause();
-  isPlaying = false;
-  playButton.html('<i class="fas fa-play"></i>');
-  clearInterval(progressInterval);
+    currentAudio.pause();
+    isPlaying = false;
+    playButton.html('<i class="fas fa-play"></i>');
+    clearInterval(progressInterval);
 }
 
 function resumeAudio(playButton, progressBar) {
-  currentAudio.play();
-  isPlaying = true;
-  playButton.html('<i class="fas fa-pause"></i>');
-  startProgressBar(progressBar, currentAudio.duration);
+    currentAudio.play();
+    isPlaying = true;
+    playButton.html('<i class="fas fa-pause"></i>');
+    startProgressBar(progressBar, currentAudio.duration);
 }
 
 function resetPreviousAudio() {
-  currentAudio.pause();
-  clearInterval(progressInterval);
-  $(`.play-pause-button`).eq(currentTrackIndex).html('<i class="fas fa-play"></i>');
-  $(`#progress-bar-${currentTrackIndex} .progress-fill`).css("width", "0%");
+    currentAudio.pause();
+    clearInterval(progressInterval);
+    $(`.play-pause-button`).eq(currentTrackIndex).html('<i class="fas fa-play"></i>');
+    $(`#progress-bar-${currentTrackIndex} .progress-fill`).css("width", "0%");
 }
 
 function resetTrack() {
-  clearInterval(progressInterval);
-  isPlaying = false;
-  currentAudio = null;
-  $(`#progress-bar-${currentTrackIndex} .progress-fill`).css("width", "0%");
-  $(`.play-pause-button`).eq(currentTrackIndex).html('<i class="fas fa-play"></i>');
-  resetAlbumImage();
+    clearInterval(progressInterval);
+    isPlaying = false;
+    currentAudio = null;
+    $(`#progress-bar-${currentTrackIndex} .progress-fill`).css("width", "0%");
+    $(`.play-pause-button`).eq(currentTrackIndex).html('<i class="fas fa-play"></i>');
 }
 
 function startProgressBar(progressBar, duration) {
-  clearInterval(progressInterval);
-  progressInterval = setInterval(() => {
-    const progress = (currentAudio.currentTime / duration) * 100;
-    if (progress <= 100) {
-      progressBar.css("width", `${progress}%`);
-    } else {
-      clearInterval(progressInterval);
-    }
-  }, 100);
-}
-
-function updateAlbumImage(albumImage) {
-  const imageElement = document.querySelector(".music-lyrics-image");
-  imageElement.src = albumImage || "./assets/img/default_musica.png";
-}
-
-function resetAlbumImage() {
-  const imageElement = document.querySelector(".music-lyrics-image");
-  imageElement.src = "./assets/img/default_musica.png";
+    clearInterval(progressInterval);
+    progressInterval = setInterval(() => {
+        const progress = (currentAudio.currentTime / duration) * 100;
+        if (progress <= 100) {
+            progressBar.css("width", `${progress}%`);
+        } else {
+            clearInterval(progressInterval);
+        }
+    }, 100);
 }
