@@ -3,7 +3,7 @@
 
 // Spotify credentials
 $client_id = 'cb83c5cda57342d7b33dae6046d85d88';
-$client_secret = '53c444c4dd554c3e9056452328184f83';
+$client_secret = 'a0a63dba93c64eaf8729155136575797';
 
 // Get access token
 function getAccessToken() {

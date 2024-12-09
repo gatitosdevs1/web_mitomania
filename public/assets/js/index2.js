@@ -2,7 +2,7 @@
 
 function getVideos() {
   const myvideos = document.querySelectorAll(".ytvideo");
-  fetch("http://localhost/PruebaPHPmailer/api.php", {
+  fetch("http://localhost/web_mitomania/php/get_videos.php", {
     method: "GET",
   })
     .then((response) => {

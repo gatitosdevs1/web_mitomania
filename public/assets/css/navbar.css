@@ -85,18 +85,29 @@ body, #menu-modal, #modal-content ul li a {
     margin: 15px 0; /* Espaciado entre elementos */
   }
   
+  /* Fondo para los enlaces del menú */
+/* Fondo para los enlaces del menú */
   #modal-content ul li a {
     text-decoration: none;
-    color: #FF4DFF; /* Texto neón rosa */
+    color: #FFFFFF; /* Texto blanco */
     font-size: 1.5rem; /* Tamaño del texto */
     text-transform: uppercase; /* Todo en mayúsculas */
-    font-weight: 600; /* Fuente más gruesa */
-    transition: color 0.3s ease;
+    font-weight: 500; /* Fuente más ligera */
+    padding: 10px 25px; /* Espaciado interno */
+    border-radius: 50px; /* Bordes completamente redondeados */
+    background: linear-gradient(135deg, rgba(255, 77, 255, 0.1), rgba(255, 77, 255, 0.05)); /* Fondo degradado suave */
+    transition: all 0.3s ease-in-out; /* Transición suave para todos los efectos */
   }
-  
+
+  /* Efecto hover para enlaces del menú */
   #modal-content ul li a:hover {
-    color: white; /* Cambiar color al pasar el mouse */
+    color: #1a1a1a; /* Texto gris oscuro */
+    background: linear-gradient(135deg, #FF4DFF, #FF77FF); /* Fondo degradado rosa intenso */
+    box-shadow: 0 8px 20px rgba(255, 77, 255, 0.5); /* Sombra suave */
+    transform: translateY(-3px); /* Eleva ligeramente el botón */
   }
+
+
   
   /* Responsividad */
   @media (max-width: 768px) {

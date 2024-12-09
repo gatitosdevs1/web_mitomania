@@ -19,7 +19,7 @@ if (!$access_token) {
 }
 
 // URL de la API de Spotify para las canciones más escuchadas
-$url = "https://api.spotify.com/v1/artists/$artist_id/top-tracks?market=US";
+$url = "https://api.spotify.com/v1/artists/$artist_id/top-tracks?market=CL";
 $options = [
     'http' => [
         'header' => "Authorization: Bearer $access_token",

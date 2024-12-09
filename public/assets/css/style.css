@@ -321,12 +321,37 @@ filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 15px #ff00ff); Efecto de br
 footer {
   font-family: "Arial", sans-serif;
   font-size: 0.8rem;
-  text-align: center;
-  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between; /* Distribuye el contenido a los lados */
+  align-items: center; /* Centra verticalmente */
+  padding: 1rem 2rem; /* Espaciado interno */
+  color: #dcd8d6; /* Texto claro para contraste con fondo oscuro */
+  border-top: 1px solid #555; /* Opcional: Línea sutil para separar el footer */
 }
-#footer-line {
-  margin: 1rem 25%;
+
+.footer-left,
+.footer-right {
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
 }
+
+.admin-link {
+  font-weight: bold;
+  color: #dcd8d6; /* Usa el mismo color claro del texto */
+  text-decoration: none;
+  margin-top: 1rem; /* Aumenta el margen superior */
+  margin-bottom: 0.5rem;
+}
+
+.admin-link:hover {
+  text-decoration: underline;
+}
+
+.footer-right p {
+  text-align: right; /* Alinea el texto de la derecha */
+  margin: 0;
+}
+
 
 /* Botón inicio */
 
