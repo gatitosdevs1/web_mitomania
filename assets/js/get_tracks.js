@@ -27,7 +27,7 @@ function populateMusicBars(tracks) {
     // Procesar cada canción para llenar las barras
     tracks.slice(0, bars.length).forEach((track, index) => {
         const { name, file_path } = track; // Extraer nombre y ruta
-        const audioPath = `/uploads/${file_path}`; // Ruta completa del archivo MP3 en el servidor
+        const audioPath = file_path; // Usar directamente la ruta proporcionada por PHP
 
         const bar = bars[index];
         while (bar.firstChild) {
@@ -68,6 +68,7 @@ let currentAudio = null,
 
 // Función para reproducir o pausar
 function playPreview(audioPath, index) {
+    console.log(`Intentando reproducir: ${audioPath}`); // Log para verificar la ruta
     const playButton = $(`.play-pause-button`).eq(index);
     const progressBar = $(`#progress-bar-${index} .progress-fill`);
 
@@ -92,6 +93,11 @@ function startNewAudio(audioPath, index, playButton, progressBar) {
         currentAudio.addEventListener("ended", () => {
             resetTrack();
         });
+    });
+
+    currentAudio.addEventListener("error", () => {
+        console.error("Error al cargar el archivo de audio:", audioPath);
+        alert("No se pudo reproducir esta canción.");
     });
 }
 

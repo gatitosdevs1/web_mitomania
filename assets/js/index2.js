@@ -2,7 +2,7 @@
 
 function getVideos() {
   const myvideos = document.querySelectorAll(".ytvideo");
-  fetch("../../php/get_videos.php", {
+  fetch("../php/get_videos.php", {
     method: "GET",
   })
     .then((response) => {
