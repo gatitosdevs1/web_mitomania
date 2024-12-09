@@ -125,5 +125,5 @@ arrow.addEventListener("click", function () {
     behavior: "smooth",
   });
 });
-console.log("prueba");
+
 // /Paulo
