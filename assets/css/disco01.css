@@ -8,7 +8,6 @@
 }
 
 /* Cuadro de la imagen */
-/* Cuadro de la imagen */
 .music-lyrics-box {
   width: 400px;
   height: 400px;
@@ -28,7 +27,6 @@
   object-fit: cover; /* Asegura que la imagen mantenga su proporción */
   border-radius: 20px; /* Bordes redondeados para la imagen */
 }
-
 
 /* Contenedor de las barras */
 .music-player-bars {
@@ -56,7 +54,6 @@
   font-size: 1.5rem; /* Incrementar tamaño de fuente */
   font-weight: bold;
   color: #000; /* Letras en negro */
-  margin-left: auto; /* Alinear al final */
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   overflow: hidden;
   text-overflow: ellipsis; /* Agrega "..." si el nombre es demasiado largo */
@@ -69,6 +66,22 @@
   color: #ffffff;
   font-size: 2rem; /* Incrementar tamaño del botón */
   cursor: pointer;
+}
+
+/* Botón de Spotify */
+.spotify-button {
+  background: none;
+  border: none;
+  color: #1db954; /* Color oficial de Spotify */
+  font-size: 2rem; /* Tamaño del ícono */
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease; /* Animación suave */
+}
+
+.spotify-button:hover {
+  transform: scale(1.2); /* Aumentar tamaño al pasar el ratón */
+  color: #1ed760; /* Color más claro al hacer hover */
 }
 
 /* Contenedor de la barra de progreso */
@@ -90,24 +103,6 @@
   transition: width 0.1s linear; /* Suavidad en el cambio de ancho */
 }
 
-
-
-/* Ícono de Spotify */
-.spotify-icon {
-  color: #1db954;
-  font-size: 2rem; /* Incrementar tamaño */
-  text-decoration: none;
-  margin-right: 15px; /* Espaciado entre íconos */
-}
-
-/* Ícono de Letras */
-.lyrics-icon {
-  color: #ffffff;
-  font-size: 2rem; /* Incrementar tamaño */
-  text-decoration: none;
-  margin-right: 15px;
-}
-
 /* Responsividad */
 @media (max-width: 1200px) {
   .player-bar {
@@ -120,8 +115,7 @@
   }
 
   .play-pause-button,
-  .spotify-icon,
-  .lyrics-icon {
+  .spotify-button {
     font-size: 1.8rem; /* Ajustar tamaño de íconos */
   }
 }
@@ -142,8 +136,7 @@
   }
 
   .play-pause-button,
-  .spotify-icon,
-  .lyrics-icon {
+  .spotify-button {
     font-size: 1.5rem; /* Ajustar tamaño de íconos */
   }
 }
@@ -159,8 +152,7 @@
   }
 
   .play-pause-button,
-  .spotify-icon,
-  .lyrics-icon {
+  .spotify-button {
     font-size: 1.2rem; /* Ajustar tamaño de íconos */
   }
 }
